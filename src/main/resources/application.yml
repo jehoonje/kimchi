@@ -1,0 +1,32 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    url: jdbc:mariadb://localhost:3306/kimchi
+    username: root
+    password: mariadb
+    driver-class-name: org.mariadb.jdbc.Driver
+    hikari:
+      housekeeper:
+        interval: 300000 # 5분 (밀리초 단위)
+  jpa:
+    database-platform: org.hibernate.dialect.MariaDB106Dialect
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
+    database: mysql
+
+# 식품안전나라 OpenAPI 인증키(예시)
+food:
+  safety:
+    key: 5616cca20865497f9133
+    serviceId: COOKRCP01
+    baseUrl: http://openapi.foodsafetykorea.go.kr/api
+
+# LibreTranslate API URL(공개 서버 예시)
+libre:
+  translate:
+    url: https://translate.argosopentech.com/translate

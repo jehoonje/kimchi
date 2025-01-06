@@ -1,44 +1,104 @@
 package com.kimchi.entity;
 
-import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
+import java.util.ArrayList;
+import java.util.List;
 
-@Entity
-@Table(name = "recipes")
-@Getter
-@Setter
+/**
+ * 식품안전나라 레시피(한글 원문)
+ */
 public class Recipe {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
-    // 예: 식품안전나라의 RCP_SEQ
     private Integer rcpSeq;
+    private String rcpNm;
+    private String rcpWay2;
+    private String rcpPat2;
+    private String rcpPartsDtls;
+    private String hashTag;
+    private String attFileNoMain;
+    private String attFileNoMk;
+    private String rcpNaTip;
 
-    // 메뉴 이름(영어)
-    private String name;
+    private List<ManualStep> manualSteps = new ArrayList<>();
 
-    // 이미지(예: ATT_FILE_NO_MK)
-    private String image;
+    // getter/setter ...
 
-    // 재료(영어 번역)
-    @Column(length = 2000)
-    private String ingredients;
+    public Integer getRcpSeq() {
+        return rcpSeq;
+    }
 
-    // 단계별 설명 (예: manual01~manual19 -> 하나의 긴 텍스트로 합칠 수도, 컬럼 여러개 둘 수도)
-    @Column(length = 2000)
-    private String manual01;
-    @Column(length = 2000)
-    private String manual02;
-    @Column(length = 2000)
-    private String manual03;
-    // 필요하면 ~ manual19까지...
+    public void setRcpSeq(Integer rcpSeq) {
+        this.rcpSeq = rcpSeq;
+    }
 
-    // TIP(영어)
-    @Column(length = 2000)
-    private String tip;
+    public String getRcpNm() {
+        return rcpNm;
+    }
 
-    // 추가 영양정보, WGT, ENG, etc... 필요하다면 필드 추가
+    public void setRcpNm(String rcpNm) {
+        this.rcpNm = rcpNm;
+    }
+
+    public String getRcpWay2() {
+        return rcpWay2;
+    }
+
+    public void setRcpWay2(String rcpWay2) {
+        this.rcpWay2 = rcpWay2;
+    }
+
+    public String getRcpPat2() {
+        return rcpPat2;
+    }
+
+    public void setRcpPat2(String rcpPat2) {
+        this.rcpPat2 = rcpPat2;
+    }
+
+    public String getRcpPartsDtls() {
+        return rcpPartsDtls;
+    }
+
+    public void setRcpPartsDtls(String rcpPartsDtls) {
+        this.rcpPartsDtls = rcpPartsDtls;
+    }
+
+    public String getHashTag() {
+        return hashTag;
+    }
+
+    public void setHashTag(String hashTag) {
+        this.hashTag = hashTag;
+    }
+
+    public String getAttFileNoMain() {
+        return attFileNoMain;
+    }
+
+    public void setAttFileNoMain(String attFileNoMain) {
+        this.attFileNoMain = attFileNoMain;
+    }
+
+    public String getAttFileNoMk() {
+        return attFileNoMk;
+    }
+
+    public void setAttFileNoMk(String attFileNoMk) {
+        this.attFileNoMk = attFileNoMk;
+    }
+
+    public String getRcpNaTip() {
+        return rcpNaTip;
+    }
+
+    public void setRcpNaTip(String rcpNaTip) {
+        this.rcpNaTip = rcpNaTip;
+    }
+
+    public List<ManualStep> getManualSteps() {
+        return manualSteps;
+    }
+
+    public void setManualSteps(List<ManualStep> manualSteps) {
+        this.manualSteps = manualSteps;
+    }
 }
